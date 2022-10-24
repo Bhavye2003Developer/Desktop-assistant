@@ -1,0 +1,26 @@
+
+2022-10-24 20:49:18.897713 : open terminal : RUN
+2022-10-24 20:49:31.391685 : open Firefox : RUN
+2022-10-24 20:49:38.256211 : open website youtube.com : RUN
+2022-10-24 20:49:46.136276 : open : 
+2022-10-24 20:49:58.847284 : open website program is dot : RUN
+2022-10-24 20:50:12.299308 : open website program : RUN
+2022-10-24 20:50:25.663206 : open google.com : NOT RUN
+2022-10-24 20:50:32.724646 : open website google.com : RUN
+2022-10-24 20:50:44.914218 : open Google Earth : RUN
+2022-10-24 20:51:03.207796 : search maar layers : RUN
+2022-10-24 20:51:15.680209 : Himalayas : 
+2022-10-24 20:51:21.815854 : sir ji Maharaj : 
+2022-10-24 20:51:38.755007 : Kya Kiya : 
+2022-10-24 20:51:44.921019 : cal Subah Ki Ja : 
+2022-10-24 20:51:59.870155 : search Himalayas : RUN
+2022-10-24 20:52:16.049865 : search Ambala : RUN
+2022-10-24 20:52:32.806537 : Bala : 
+2022-10-24 20:53:48.207803 : open file : RUN
+2022-10-24 20:54:15.650440 : open theme selector : RUN
+2022-10-24 20:55:07.670785 : open Sonar : NOT RUN
+2022-10-24 20:55:15.145596 : open thunar : RUN
+2022-10-24 20:55:22.110245 : open : 
+2022-10-24 21:01:06.069010 : Open github.com : NOT RUN
+2022-10-24 21:01:13.338685 : open website github.com : RUN
+2022-10-24 21:03:35.979217 : search GitHub manual : RUN
