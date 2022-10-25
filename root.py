@@ -4,6 +4,7 @@ import os
 import time
 import speake3
 import datetime
+import subprocess
 import webbrowser
 from datetime import date
 from googlesearch import search
@@ -24,7 +25,7 @@ def take_input(): #Taking the input
     text = ""
     try:
         with sr.Microphone() as source:
-            a = r.record(source,duration=3.5)
+            a = r.record(source,duration=3.9)
             text = r.recognize_google(a,language='en-US', show_all=False)
             return text
     except:
@@ -37,7 +38,7 @@ def speak(output): #To speak the output via speaker
 
 
 def app_open(query): #To open binaries
-    print(query)
+    #print(query)
     bin_dir = os.listdir("/usr/bin")  #Binaries absolute path
     for i in bin_dir:
         binary = ""
@@ -50,7 +51,7 @@ def app_open(query): #To open binaries
                 flag = False
         if (flag):
             a = os.popen(f"/usr/bin/{i}")
-            print(a)
+            #print(a)
             speak(f"Opening {binary}")
             return 1
     return 0
@@ -77,6 +78,16 @@ def google_search(query):
     speak(f"searching {to_be_searched}") 
     webbrowser.open_new_tab(url) #opening browser new tab with that website
 
+
+def open_file(fileName): #filelocation --> file name
+    speak("Opening file...")
+    subprocess.run(["subl",fileName])
+
+
+def open_fileLocation(fileLocation): #filelocation --> file name
+    speak("Opening file Location...")
+    subprocess.run(["thunar",fileLocation])
+
 def initialise():
     query = take_input()  #Taking input via microphone
 
@@ -84,7 +95,7 @@ def initialise():
     f = open("logs","a")
 
     if (query==""):
-        print("No command given!!!")
+        #print("No command given!!!")
         pass
 
     else:
@@ -105,6 +116,25 @@ def initialise():
             if (query[0]=='open' and query[1]=='website'):
                 website_open(query)
                 is_run = "RUN"
+
+            elif (query[0]=="open" and query[1]=="file" and query[2]=="location"):
+                file_location = ""
+                query = query[3:]
+                for i in query:
+                    if i=="slash":
+                        file_location+="/"
+                    else:
+                        file_location+=i
+                open_fileLocation(file_location)
+
+            elif (query[0]=="open" and query[1]=="file"):
+                file_name = query[2]
+                if file_name in os.listdir():
+                    open_file(file_name)
+                    is_run = "RUN"
+                else:
+                    speak("No file found")
+                    is_run = "NOT RUN"
 
             elif (query[0]=="open"):
                 app_condition = app_open(query[1:])
@@ -131,4 +161,4 @@ def initialise():
         f.close()
 
 while True:
-    initialise() #while loop to run this program every 3.5 seconds  
+    initialise() #while loop to run this program every 3.9 seconds  
